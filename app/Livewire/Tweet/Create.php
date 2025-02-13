@@ -22,14 +22,14 @@ class Create extends Component
     /**
      * @throws AuthorizationException
      */
-    public function tweet()
+    public function tweet(): void
     {
 
         $this->authorize('create', Tweet::class);
 
 
         $this->validate([
-            'body' => 'required',
+            'body' => ['required','max:140'],
         ]);
         Tweet::query()->create([
             'body' => $this->body,
