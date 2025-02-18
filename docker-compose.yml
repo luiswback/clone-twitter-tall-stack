@@ -65,44 +65,6 @@ services:
         depends_on:
             - mysql
 
-#    redis:
-#        container_name: tall-setup-redis
-#        image: redis:latest
-#        restart: always
-#        ports:
-#            - '6381:6379'
-#        networks:
-#            - tall-network
-#
-#    worker:
-#        container_name: tall-setup-worker
-#        build:
-#            context: ./docker/php
-#            dockerfile: Dockerfile
-#        restart: unless-stopped
-#        volumes:
-#            - .:/var/www
-#        command: php artisan queue:work
-#        networks:
-#            - tall-network
-#        depends_on:
-#            - redis
-#
-#    pest:
-#        container_name: tall-setup-pest
-#        build:
-#            context: ./docker/php
-#            dockerfile: Dockerfile
-#        volumes:
-#            - .:/var/www
-#        working_dir: /var/www
-#        command: ./vendor/bin/pest
-#        networks:
-#            - tall-network
-#        depends_on:
-#            - mysql
-#            - redis
-
 networks:
     tall-network:
         driver: bridge

@@ -31,10 +31,12 @@ class Create extends Component
         $this->validate([
             'body' => ['required','max:140'],
         ]);
+
         Tweet::query()->create([
             'body' => $this->body,
             'created_by' => auth()->id(),
         ]);
         $this->dispatch('tweet::created');
+        $this->reset('body');
     }
 }
