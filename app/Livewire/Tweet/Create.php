@@ -6,6 +6,7 @@ use App\Models\Tweet;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class Create extends Component
@@ -36,7 +37,7 @@ class Create extends Component
             'body' => $this->body,
             'created_by' => auth()->id(),
         ]);
-        $this->dispatch('tweet::created');
         $this->reset('body');
+        $this->dispatch('tweet::created');
     }
 }

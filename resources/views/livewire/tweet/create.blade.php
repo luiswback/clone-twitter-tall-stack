@@ -1,7 +1,7 @@
 <div>
     <div>
         <label>
-            <textarea wire:model="body" placeholder="What's up doc?"></textarea>
+            <textarea wire:model="body" wire:key="{{ now() }}" placeholder="What's up doc?"></textarea>
         </label>
         @error('body') <span class="text-red-200 font-bold">{{$message}}</span>@enderror
     </div>

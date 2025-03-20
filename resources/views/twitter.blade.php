@@ -19,8 +19,8 @@
 <div class="container mx-auto grid grid-cols-4 h-full">
 
     {{--        Menu--}}
-    <div class="pt-px text-[#d6d9db] space-y-1">
-        <a href="#" class="bg-transparent hover:bg-gray-200 hover:bg-opacity-10 rounded-full p-2 flex w-10">
+    <div class="pt-px text-[#d6d9db] space-y-1 flex flex-col">
+        <a href="#" class="bg-transparent hover:bg-gray-200 hover:bg-opacity-10 rounded-full p-2 mt-1 w-10">
             <x-icons.twitter/>
         </a>
 

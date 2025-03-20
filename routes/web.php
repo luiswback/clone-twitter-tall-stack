@@ -1,10 +1,15 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
-    return view('welcome');
+    Auth::login(User::query()->first());
+
+    return view('dashboard');
 });
 
 Route::view('twitter', 'twitter')->name('twitter');
