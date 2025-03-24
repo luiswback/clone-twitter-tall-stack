@@ -10,6 +10,7 @@
             const observer = new IntersectionObserver((items) => {
                 items.forEach((item) => {
                     if (item.isIntersecting){
+
 {{--                    console.log(item)--}}
                         @this.loadMore();
                     }

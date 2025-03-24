@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscribeController;
 use App\Models\User;
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -10,9 +12,12 @@ Route::get('/', function () {
     Auth::login(User::query()->first());
 
     return view('dashboard');
-});
+})->name('home');
 
 Route::view('twitter', 'twitter')->name('twitter');
+Route::get('subscribe', SubscribeController::class)
+    ->name('subscribe')
+    ->middleware(Authenticate::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,4 +29,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

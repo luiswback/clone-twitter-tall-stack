@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd zip pdo_mysql mbstring exif pdo_sqlite
+RUN docker-php-ext-install bcmath
 
 RUN pecl install redis && docker-php-ext-enable redis
 
